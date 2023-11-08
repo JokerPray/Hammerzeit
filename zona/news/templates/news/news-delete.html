@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title%} Удаление статьи {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Удаление статьи</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit"> Удалить статью </button>
+
+        </form>
+        <form method="get" id="backForm">
+            <button class="btn btn-primary btn-margins" type="submit">Назад</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script> document.getElementById("backForm").action = document.referrer; </script>
+{% endblock %}
+
+
+
+<style>
+    .btn-margins {
+        margin-top: 100px !important;
+    }
+</style>
